@@ -1,0 +1,8 @@
+{
+  "name": "World of TEXTS",
+  "description": "Linguistic Mastery Engine. A sophisticated workspace for interacting with Gemini using the canonical World of TEXTS registry.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
