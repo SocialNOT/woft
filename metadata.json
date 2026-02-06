@@ -1,0 +1,8 @@
+{
+  "name": "TEXTSCRIBE AI - World of TEXTS",
+  "description": "High-fidelity AI Engineering platform powered by Gemini 3 Pro and Live Audio APIs.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

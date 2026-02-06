@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TEXT-OS // World of TEXTS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              terminal: {
+                bg: '#000000',
+                border: '#1E293B',
+                text: '#F8FAFC',
+                dim: '#64748B',
+                primary: '#22D3EE',
+                accent: '#A855F7',
+                success: '#10B981',
+                warning: '#F59E0B',
+                error: '#EF4444'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+          --terminal-primary: #22D3EE;
+        }
+
+        body { 
+          background-color: #000000;
+          color: #F8FAFC;
+          font-family: 'JetBrains Mono', monospace;
+          height: 100vh;
+          overflow: hidden;
+          position: relative;
+        }
+
+        /* CRT Scanline Effect */
+        body::after {
+          content: " ";
+          display: block;
+          position: fixed;
+          top: 0; left: 0; bottom: 0; right: 0;
+          background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
+                      linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+          z-index: 9999;
+          background-size: 100% 4px, 3px 100%;
+          pointer-events: none;
+        }
+
+        .terminal-window {
+          border: 1px solid #1E293B;
+          background: rgba(0, 0, 0, 0.9);
+          position: relative;
+        }
+
+        .terminal-header {
+          border-bottom: 1px solid #1E293B;
+          background: #0F172A;
+          padding: 4px 12px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .cursor-blink { animation: blink 1s infinite; }
+
+        .ascii-art {
+          font-family: monospace;
+          white-space: pre;
+          line-height: 1;
+          font-size: 8px;
+          color: var(--terminal-primary);
+        }
+
+        .btn-terminal {
+          border: 1px solid #1E293B;
+          padding: 4px 12px;
+          text-transform: uppercase;
+          font-size: 10px;
+          font-weight: 800;
+          transition: all 0.2s;
+        }
+        .btn-terminal:hover {
+          background: var(--terminal-primary);
+          color: #000000;
+          border-color: var(--terminal-primary);
+        }
+        .btn-terminal:active { transform: scale(0.98); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@^2.95.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="antialiased font-mono">
+    <div id="root" class="h-full"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
